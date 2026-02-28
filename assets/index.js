@@ -54,11 +54,14 @@ imageInput.addEventListener('change', (event) => {
     var data = new FormData();
     data.append("image", file);
 
-    fetch('	https://api.imgur.com/3/image' ,{
-        method: 'POST',
-        headers: {
-            'Authorization': 'Client-ID 4ecc257cbb25ccc'
-        },
+    const reader = new FileReader();
+
+reader.onload = function(e){
+localStorage.setItem("photo", e.target.result);
+window.location.href = "card.html";
+};
+
+reader.readAsDataURL(file);
         body: data
     })
     .then(result => result.json())
@@ -151,5 +154,6 @@ guide.addEventListener('click', () => {
     }else{
         guide.classList.add("unfolded");
     }
+
 
 })
