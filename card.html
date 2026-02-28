@@ -10,6 +10,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no">
     <meta name="mobile-web-app-capable" content="yes">
 </head>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+const img = document.querySelector("img");
+const saved = localStorage.getItem("photo");
+if(img && saved){
+img.src = saved;
+}
+});
+</script>
 <body>
     <div class="top_grid">
         <div class="action_grid">
@@ -227,4 +236,5 @@
     <script src="assets/bar.js"></script>
     <script src="assets/card.js?v=1.0"></script>
     <script src="assets/manifest.js"></script>
+
 </body>
