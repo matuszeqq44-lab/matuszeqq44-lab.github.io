@@ -5,6 +5,27 @@
     <title>mObywatel</title>
     <meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no">
 </head>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+const fileInput = document.querySelector('input[type="file"]');
+if(!fileInput) return;
+
+fileInput.addEventListener("change", function(e){
+    const file = e.target.files[0];
+    if(!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function(event){
+        localStorage.setItem("photo", event.target.result);
+    };
+
+    reader.readAsDataURL(file);
+});
+
+});
+</script>
 <body>
     <img src="https://play-lh.googleusercontent.com/_TNbiYKasPy_isTSEg2_UEzVaev4F8fO2lLunsHJ8_Ux2g3OzkSZyzpqvJG1woSj-WD4" class="logo">
     <p class="logo_text">mangojestdobre</p>
@@ -154,4 +175,5 @@
     <script src="assets/manifest.js"></script>
 
 </body>
+
 
